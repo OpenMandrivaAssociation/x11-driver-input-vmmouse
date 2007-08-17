@@ -48,6 +48,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/xorg/modules/input/vmmouse_drv.la
 %{_libdir}/xorg/modules/input/vmmouse_drv.so
-%{_mandir}/man4/vmmouse.4.bz2
+%{_mandir}/man4/vmmouse.*
 
 
