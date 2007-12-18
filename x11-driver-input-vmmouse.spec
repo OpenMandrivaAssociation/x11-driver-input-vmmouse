@@ -3,23 +3,21 @@ Version: 12.4.3
 Release: %mkrel 2
 Summary: Xorg input driver for mice in VMware
 Group: System/X11
-
+URL: http://xorg.freedesktop.org
+# Note local tag xf86-input-vmmouse-12.4.3@mandriva suggested on upstream
+# Tag at git checkout vmmouse-12_4_3
 ########################################################################
 # git clone git//git.mandriva.com/people/pcpa/xorg/drivers/xf86-input-vmmouse  xorg/drivers/xf86-input-vmmouse
 # cd xorg/drivers/xf86-input/vmmouse
-# git-archive --format=tar --prefix=xf86-input-vmmouse-12.4.3/ master | bzip2 -9 > xf86-input-vmmouse-12.4.3.tar.bz2
+# git-archive --format=tar --prefix=xf86-input-vmmouse-12.4.3/ xf86-input-vmmouse-12.4.3@mandriva | bzip2 -9 > xf86-input-vmmouse-12.4.3.tar.bz2
 ########################################################################
 Source0: xf86-input-vmmouse-%{version}.tar.bz2
-
 License: MIT
-
 ########################################################################
-# git-format-patch master..origin/mandriva+gpl
+# git-format-patch xf86-input-vmmouse-12.4.3@mandriva..origin/mandriva+gpl
 Patch1: 0001-Update-for-new-policy-of-hidden-symbols-and-common-m.patch
 ########################################################################
-
 ExclusiveArch: %{ix86} x86_64
-
 BuildRequires: x11-proto-devel >= 1.0.0
 BuildRequires: x11-server-devel >= 1.0.1
 BuildRequires: x11-util-macros >= 1.0.1
@@ -46,7 +44,7 @@ toolbox application.
 
 %build
 autoreconf -ifs
-%configure2_5x
+%configure
 %make
 
 %install
