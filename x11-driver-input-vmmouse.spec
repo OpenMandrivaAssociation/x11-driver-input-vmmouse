@@ -1,3 +1,4 @@
+ExclusiveArch: %{ix86} x86_64
 Name: x11-driver-input-vmmouse
 Version: 12.4.3
 Release: %mkrel 2
@@ -7,7 +8,7 @@ URL: http://xorg.freedesktop.org
 # Note local tag xf86-input-vmmouse-12.4.3@mandriva suggested on upstream
 # Tag at git checkout vmmouse-12_4_3
 ########################################################################
-# git clone git//git.mandriva.com/people/pcpa/xorg/drivers/xf86-input-vmmouse  xorg/drivers/xf86-input-vmmouse
+# git clone git://git.mandriva.com/people/pcpa/xorg/drivers/xf86-input-vmmouse xorg/drivers/xf86-input-vmmouse
 # cd xorg/drivers/xf86-input/vmmouse
 # git-archive --format=tar --prefix=xf86-input-vmmouse-12.4.3/ xf86-input-vmmouse-12.4.3@mandriva | bzip2 -9 > xf86-input-vmmouse-12.4.3.tar.bz2
 ########################################################################
@@ -17,11 +18,10 @@ License: MIT
 # git-format-patch xf86-input-vmmouse-12.4.3@mandriva..origin/mandriva+gpl
 Patch1: 0001-Update-for-new-policy-of-hidden-symbols-and-common-m.patch
 ########################################################################
-ExclusiveArch: %{ix86} x86_64
 BuildRequires: x11-proto-devel >= 1.0.0
 BuildRequires: x11-server-devel >= 1.0.1
-BuildRequires: x11-util-macros >= 1.0.1
-
+BuildRequires: x11-util-macros >= 1.1.5-4mdk
+BuildRequires: x11-util-modular
 Conflicts: xorg-x11-server < 7.0
 
 %description
@@ -36,6 +36,13 @@ consistent with the user's host operating system, and enables the
 auto-grab/ungrab feature in VMware products without requiring the VMware
 toolbox application.
 
+%package devel
+Summary: Development files for %{name}
+Group: Development/X11
+License: MIT
+
+%description devel
+Development files for %{name}
 
 %prep
 %setup -q -n xf86-input-vmmouse-%{version}
@@ -50,13 +57,21 @@ autoreconf -ifs
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+# Create list of dependencies
+x-check-deps.pl
+for deps in *.deps; do
+    install -D -m 644 $deps %{buildroot}/%{_datadir}/X11/mandriva/$deps
+done
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%{_libdir}/xorg/modules/input/vmmouse_drv.la
 %{_libdir}/xorg/modules/input/vmmouse_drv.so
 %{_mandir}/man4/vmmouse.*
 
+%files devel
+%defattr(-,root,root)
+%{_libdir}/xorg/modules/input/*.la
+%{_datadir}/X11/mandriva/*.deps
