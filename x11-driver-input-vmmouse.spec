@@ -36,14 +36,6 @@ consistent with the user's host operating system, and enables the
 auto-grab/ungrab feature in VMware products without requiring the VMware
 toolbox application.
 
-%package devel
-Summary: Development files for %{name}
-Group: Development/X11
-License: MIT
-
-%description devel
-Development files for %{name}
-
 %prep
 %setup -q -n xf86-input-vmmouse-%{version}
 
@@ -57,11 +49,7 @@ autoreconf -ifs
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-# Create list of dependencies
-x-check-deps.pl
-for deps in *.deps; do
-    install -D -m 644 $deps %{buildroot}/%{_datadir}/X11/mandriva/$deps
-done
+rm -f %{buildroot}/%{_libdir}/xorg/modules/input/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -70,8 +58,3 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/xorg/modules/input/vmmouse_drv.so
 %{_mandir}/man4/vmmouse.*
-
-%files devel
-%defattr(-,root,root)
-%{_libdir}/xorg/modules/input/*.la
-%{_datadir}/X11/mandriva/*.deps
