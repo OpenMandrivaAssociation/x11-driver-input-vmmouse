@@ -1,9 +1,7 @@
-%define debug_package	%{nil}
-
 ExclusiveArch: %{ix86} x86_64
 Name: x11-driver-input-vmmouse
 Version: 12.4.3
-Release: %mkrel 2
+Release: %mkrel 3
 Summary: Xorg input driver for mice in VMware
 Group: System/X11
 URL: http://xorg.freedesktop.org
