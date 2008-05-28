@@ -16,7 +16,7 @@ BuildRequires: x11-util-macros >= 1.0.1
 Conflicts: xorg-x11-server < 7.0
 
 %description
-The VMMouse driver enables support for the special VMMouse protocol.
+The VMMouse driver enables support for the special VMMouse protocol
 that is provided by VMware virtual machines to give absolute pointer
 positioning.
 
