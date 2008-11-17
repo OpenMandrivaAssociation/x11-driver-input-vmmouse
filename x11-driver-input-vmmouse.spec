@@ -45,9 +45,9 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %{_datadir}/hal/fdi/policy/20thirdparty/11-x11-vmmouse.fdi
-%{_libdir}/hal-probe-vmmouse
+%{_libdir}/hal/hal-probe-vmmouse
 %{_libdir}/xorg/modules/input/vmmouse_drv.la
 %{_libdir}/xorg/modules/input/vmmouse_drv.so
-%{_mandir}/mmouse_detect
+%{_bindir}/mmouse_detect
 %{_mandir}/man1/vmmouse_detect.*
 %{_mandir}/man4/vmmouse.*
