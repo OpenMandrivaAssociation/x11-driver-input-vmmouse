@@ -48,6 +48,6 @@ rm -rf %{buildroot}
 %{_libdir}/hal/hal-probe-vmmouse
 %{_libdir}/xorg/modules/input/vmmouse_drv.la
 %{_libdir}/xorg/modules/input/vmmouse_drv.so
-%{_bindir}/mmouse_detect
+%{_bindir}/vmmouse_detect
 %{_mandir}/man1/vmmouse_detect.*
 %{_mandir}/man4/vmmouse.*
