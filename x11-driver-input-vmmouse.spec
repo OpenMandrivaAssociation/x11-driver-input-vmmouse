@@ -1,5 +1,5 @@
 Name: x11-driver-input-vmmouse
-Version: 12.6.7
+Version: 12.6.8
 Release: %mkrel 1
 Summary: Xorg input driver for mice in VMware
 Group: System/X11
@@ -49,5 +49,6 @@ rm -rf %{buildroot}
 %{_libdir}/xorg/modules/input/vmmouse_drv.la
 %{_libdir}/xorg/modules/input/vmmouse_drv.so
 %{_bindir}/vmmouse_detect
-%{_mandir}/man1/vmmouse_detect.*
+%{_mandir}/man4/vmmouse_detect.*
 %{_mandir}/man4/vmmouse.*
+/lib/udev/rules.d/69-xorg-vmmouse.rules
