@@ -52,3 +52,4 @@ rm -rf %{buildroot}
 %{_mandir}/man1/vmmouse_detect.*
 %{_mandir}/man4/vmmouse.*
 /lib/udev/rules.d/69-xorg-vmmouse.rules
+%{_datadir}/X11/xorg.conf.d/50-vmmouse.conf
