@@ -1,12 +1,11 @@
 Name: x11-driver-input-vmmouse
 Version: 12.7.0
-Release: %mkrel 4
+Release: 5
 Summary: Xorg input driver for mice in VMware
 Group: System/X11
 URL: http://xorg.freedesktop.org
 Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-input-vmmouse-%{version}.tar.bz2
 License: MIT
-BuildRoot: %{_tmppath}/%{name}-root
 ExclusiveArch: %{ix86} x86_64
 
 BuildRequires: x11-proto-devel >= 1.0.0
@@ -29,9 +28,8 @@ consistent with the user's host operating system, and enables the
 auto-grab/ungrab feature in VMware products without requiring the VMware
 toolbox application.
 
-
 %prep
-%setup -q -n xf86-input-vmmouse-%{version}
+%setup -qn xf86-input-vmmouse-%{version}
 
 %build
 %configure2_5x
@@ -40,15 +38,11 @@ toolbox application.
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-
-%clean
-rm -rf %{buildroot}
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %files
-%defattr(-,root,root)
 %{_datadir}/hal/fdi/policy/20thirdparty/11-x11-vmmouse.fdi
 %{_libdir}/hal/hal-probe-vmmouse
-%{_libdir}/xorg/modules/input/vmmouse_drv.la
 %{_libdir}/xorg/modules/input/vmmouse_drv.so
 %{_bindir}/vmmouse_detect
 %{_mandir}/man1/vmmouse_detect.*
