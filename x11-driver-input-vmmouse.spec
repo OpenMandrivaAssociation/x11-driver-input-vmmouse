@@ -1,6 +1,6 @@
 Name:		x11-driver-input-vmmouse
 Version:	12.9.0
-Release:	1
+Release:	2
 Summary:	Xorg input driver for mice in VMware
 Group:		System/X11
 URL:		http://xorg.freedesktop.org
@@ -9,7 +9,7 @@ License:	MIT
 ExclusiveArch:	%{ix86} x86_64
 
 BuildRequires:	x11-proto-devel >= 1.0.0
-BuildRequires:	x11-server-devel >= 1.12
+BuildRequires:	pkgconfig(xorg-server) >= 1.13
 BuildRequires:	x11-util-macros >= 1.0.1
 
 Requires:	x11-server-common %(xserver-sdk-abi-requires xinput)
