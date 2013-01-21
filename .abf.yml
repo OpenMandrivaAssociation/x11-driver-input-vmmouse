@@ -1,2 +1,4 @@
+removed_sources:
+  xf86-input-vmmouse-12.9.0.tar.bz2: 83500beddba2da390389705d482131872fe9be8b
 sources:
-  "xf86-input-vmmouse-12.9.0.tar.bz2": 83500beddba2da390389705d482131872fe9be8b
+  xf86-input-vmmouse-13.0.0.tar.bz2: 0fa67d2ca9b2b26d32b93cc030fc3ea28964fe81
