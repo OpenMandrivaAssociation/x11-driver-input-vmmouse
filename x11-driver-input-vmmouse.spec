@@ -1,20 +1,20 @@
-Name: x11-driver-input-vmmouse
-Version: 13.0.0
-Release: 1
-Summary: Xorg input driver for mice in VMware
-Group: System/X11
-URL: http://xorg.freedesktop.org
-Source0: http://xorg.freedesktop.org/releases/individual/driver/xf86-input-vmmouse-%{version}.tar.bz2
-License: MIT
-ExclusiveArch: %{ix86} x86_64
+Name:		x11-driver-input-vmmouse
+Version:	13.0.0
+Release:	1
+Summary:	Xorg input driver for mice in VMware
+Group:		System/X11
+URL:		http://xorg.freedesktop.org
+Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-input-vmmouse-%{version}.tar.bz2
+License:	MIT
+ExclusiveArch:	%{ix86} x86_64
 
-BuildRequires: x11-proto-devel >= 1.0.0
-BuildRequires: x11-server-devel >= 1.12
-BuildRequires: x11-util-macros >= 1.0.1
+BuildRequires:	x11-proto-devel >= 1.0.0
+BuildRequires:	x11-server-devel >= 1.12
+BuildRequires:	x11-util-macros >= 1.0.1
 
-Requires: x11-server-common %(xserver-sdk-abi-requires xinput)
+Requires:	x11-server-common %(xserver-sdk-abi-requires xinput)
 
-Conflicts: xorg-x11-server < 7.0
+Conflicts:	xorg-x11-server < 7.0
 
 %description
 The VMMouse driver enables support for the special VMMouse protocol
@@ -48,7 +48,6 @@ libtoolize --copy --force
 %{_mandir}/man4/vmmouse.*
 /lib/udev/rules.d/69-xorg-vmmouse.rules
 %{_datadir}/X11/xorg.conf.d/50-vmmouse.conf
-
 
 %changelog
 * Tue Mar 27 2012 Bernhard Rosenkraenzer <bero@bero.eu> 12.8.0-6
