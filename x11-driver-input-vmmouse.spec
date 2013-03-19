@@ -30,6 +30,7 @@ toolbox application.
 
 %prep
 %setup -qn xf86-input-vmmouse-%{version}
+libtoolize --copy --force
 
 %build
 %configure2_5x
