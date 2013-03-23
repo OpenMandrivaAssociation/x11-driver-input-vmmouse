@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 Summary:	Xorg input driver for mice in VMware
 Name:		x11-driver-input-vmmouse
 Version:	13.0.0
