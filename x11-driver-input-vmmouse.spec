@@ -1,11 +1,14 @@
 Summary:	Xorg input driver for mice in VMware
 Name:		x11-driver-input-vmmouse
 Version:	13.0.0
-Release:	8
+Release:	9
 Group:		System/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-input-vmmouse-%{version}.tar.bz2
+# rhbz#604660 - vmmouse_detect unexpected exit with status 0x000b
+Patch0:		vmmouse-12.6.9-iopl-revert.patch
+
 ExclusiveArch:	%{ix86} x86_64
 
 BuildRequires:	pkgconfig(udev)
@@ -28,7 +31,8 @@ toolbox application.
 
 %prep
 %setup -qn xf86-input-vmmouse-%{version}
-libtoolize --copy --force
+%apply_patches
+autoreconf -fiv
 
 %build
 %configure2_5x
