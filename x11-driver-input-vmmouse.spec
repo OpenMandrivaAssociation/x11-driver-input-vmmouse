@@ -38,7 +38,7 @@ autoreconf -fiv
 %makeinstall_std
 
 # HAL is dead for long time
-rm -rf %{_datadir}/hal/fdi/policy/20thirdparty/11-x11-vmmouse.fdi
+rm -rf %{buildroot}%{_datadir}/hal/fdi/policy/20thirdparty/11-x11-vmmouse.fdi
 
 %files
 %{_libdir}/hal/hal-probe-vmmouse
