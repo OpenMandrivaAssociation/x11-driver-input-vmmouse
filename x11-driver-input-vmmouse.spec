@@ -1,7 +1,7 @@
 Summary:	Xorg input driver for mice in VMware
 Name:		x11-driver-input-vmmouse
-Version:	13.0.99
-Release:	4
+Version:	13.1.0
+Release:	1
 Group:		System/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
@@ -31,18 +31,20 @@ toolbox application.
 autoreconf -fiv
 
 %build
-%configure
+%configure  --with-udev-rules-dir=%{_udevrulesdir}
 %make
 
 %install
 %makeinstall_std
 
+# HAL is dead for long time
+rm -rf %{_datadir}/hal/fdi/policy/20thirdparty/11-x11-vmmouse.fdi
+
 %files
-%{_datadir}/hal/fdi/policy/20thirdparty/11-x11-vmmouse.fdi
 %{_libdir}/hal/hal-probe-vmmouse
 %{_libdir}/xorg/modules/input/vmmouse_drv.so
 %{_bindir}/vmmouse_detect
 %{_mandir}/man1/vmmouse_detect.*
 %{_mandir}/man4/vmmouse.*
-/lib/udev/rules.d/69-xorg-vmmouse.rules
+%{_udevrulesdir}/69-xorg-vmmouse.rules
 %{_datadir}/X11/xorg.conf.d/50-vmmouse.conf
