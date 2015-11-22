@@ -6,11 +6,7 @@ Group:		System/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-input-vmmouse-%{version}.tar.bz2
-# rhbz#604660 - vmmouse_detect unexpected exit with status 0x000b
-Patch0:		vmmouse-12.6.9-iopl-revert.patch
-
 ExclusiveArch:	%{ix86} x86_64
-
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(xproto)
 BuildRequires:	pkgconfig(xorg-macros)
