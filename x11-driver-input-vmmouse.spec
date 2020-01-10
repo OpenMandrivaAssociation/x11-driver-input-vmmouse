@@ -27,7 +27,7 @@ toolbox application.
 
 %prep
 %setup -qn xf86-input-vmmouse-%{version}
-%apply_patches
+%autopatch -p1
 autoreconf -fiv
 
 %build
