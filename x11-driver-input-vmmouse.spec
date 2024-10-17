@@ -4,7 +4,7 @@ Version:	13.2.0
 Release:	2
 Group:		System/X11
 License:	MIT
-Url:		http://xorg.freedesktop.org
+Url:		https://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-input-vmmouse-%{version}.tar.xz
 ExclusiveArch:	%{ix86} %{x86_64}
 BuildRequires:	pkgconfig(udev)
